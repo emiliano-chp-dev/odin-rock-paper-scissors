@@ -18,3 +18,9 @@ function getRandomInt (num) {
 }
 
 console.log(getComputerChoice());
+
+function getHumanChoice() {
+    return prompt("Rock, paper, or scissors?").toLocaleLowerCase();
+}
+
+console.log(getHumanChoice());
