@@ -56,7 +56,7 @@ function playGame() {
     let roundCounter = 1;
     while (roundCounter <= 5) {
         console.log(playRound(getHumanChoice(), getComputerChoice()));
-        roundCounter++;
+        ++roundCounter;
     }
 }
 
