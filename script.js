@@ -26,27 +26,26 @@ function playGame() {
     let computerScore = 0;
     
     function playRound(humanChoice, computerChoice) {
-        humanChoice.toLowerCase();
         let roundResult = "";
     
-        if (humanChoice === computerChoice) {
+        if (humanChoice.toLowerCase() === computerChoice) {
             roundResult = "It's a draw!";
-        } else if (humanChoice === "rock" && computerChoice === "paper") {
+        } else if (humanChoice.toLowerCase() === "rock" && computerChoice === "paper") {
             roundResult = "You lose! Paper beats rock.";
             computerScore++;
-        } else if (humanChoice === "rock" && computerChoice === "scissors") {
+        } else if (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") {
             roundResult = "You win! Rock beats scissors.";
             computerScore++;
-        } else if (humanChoice === "paper" && computerChoice === "rock") {
+        } else if (humanChoice.toLowerCase() === "paper" && computerChoice === "rock") {
             roundResult = "You win! Paper beats rock.";
             humanScore++;
-        } else if (humanChoice === "paper" && computerChoice === "scissors") {
+        } else if (humanChoice.toLowerCase() === "paper" && computerChoice === "scissors") {
             roundResult = "You lose! Scissors beats paper.";
             computerScore++;
-        } else if (humanChoice === "scissors" && computerChoice === "rock") {
+        } else if (humanChoice.toLowerCase() === "scissors" && computerChoice === "rock") {
             roundResult = "You lose! Rock beats scissors.";
             computerScore++;
-        } else if (humanChoice === "scissors" && computerChoice === "paper") {
+        } else if (humanChoice.toLowerCase() === "scissors" && computerChoice === "paper") {
             roundResult = "You win! Scissors beats paper."
             humanScore++;
         }
@@ -56,8 +55,7 @@ function playGame() {
 
     let roundCounter = 1;
     while (roundCounter <= 5) {
-        let roundResult = playRound(getHumanChoice(), getComputerChoice());
-        console.log(roundResult);
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
         roundCounter++;
     }
 }
