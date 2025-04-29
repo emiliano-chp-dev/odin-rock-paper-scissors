@@ -19,7 +19,7 @@ function getRandomInt (num) {
 
 function playGame() {
     // DOM elements
-    const playerScoreElement = document.querySelector('.player_score');
+    const humanScoreElement = document.querySelector('.human_score');
     const computerScoreElement = document.querySelector('.computer_score');
     const roundResultElement = document.querySelector('.round_result');
     const roundTrackerElement = document.querySelector('.round_tracker');
@@ -65,7 +65,7 @@ function playGame() {
     }
 
     function setDisplay () {
-        playerScoreElement.innerText = 0;
+        humanScoreElement.innerText = 0;
         computerScoreElement.innerText = 0;
         roundResultElement.innerText = "Let's play!";
         roundTrackerElement.innerText = 1;
@@ -89,6 +89,8 @@ function playGame() {
     
             let roundOutcome = playRound(target.id, getComputerChoice());
             updateDisplay(roundResultElement, roundOutcome);
+            updateDisplay(humanScoreElement, humanScore);
+            updateDisplay(computerScoreElement, computerScore);
             updateDisplay(roundTrackerElement, roundCounter);
             ++roundCounter;
     
