@@ -68,6 +68,7 @@ function playGame() {
         playerScoreElement.innerText = 0;
         computerScoreElement.innerText = 0;
         roundResultElement.innerText = "Let's play!";
+        roundTrackerElement.innerText = 1;
     }
 
     setDisplay();
