@@ -17,13 +17,18 @@ function getRandomInt (num) {
     return Math.floor(Math.random() * num);
 }
 
-// function getHumanChoice() {
-//     return prompt("Rock, paper, or scissors?");
-// }
-
 function playGame() {
+    // DOM elements
+    const playerScoreElement = document.querySelector('.player_score');
+    const computerScoreElement = document.querySelector('.computer_score');
+    const roundResultElement = document.querySelector('.round_result');
+    const roundTrackerElement = document.querySelector('.round_tracker');
+
+    // Variables
     let humanScore = 0;
     let computerScore = 0;
+    let gameEnd = false;
+    let roundCounter = 1;
     
     function playRound(humanChoice, computerChoice) {
         let roundResult = "";
@@ -53,14 +58,22 @@ function playGame() {
         return roundResult;
     }
 
-    let gameEnd = false;
-    let gameResult = '';
-    let roundCounter = 1;
-
     function determineWinner(humanScore, computerScore) {
         if (humanScore === computerScore) return "This game's a draw!";
         else if (humanScore > computerScore) return "You win!";
         else return "Computer wins!";
+    }
+
+    function setDisplay () {
+        playerScoreElement.innerText = 0;
+        computerScoreElement.innerText = 0;
+        roundResultElement.innerText = "Let's play!";
+    }
+
+    setDisplay();
+
+    function updateDisplay(element, content) {
+        element.innerText = content;
     }
     
     function playOnClick() {
@@ -73,12 +86,15 @@ function playGame() {
     
             if (target.id === '') return;
     
-            console.log(playRound(target.id, getComputerChoice()));
-            roundCounter++;
+            let roundOutcome = playRound(target.id, getComputerChoice());
+            updateDisplay(roundResultElement, roundOutcome);
+            updateDisplay(roundTrackerElement, roundCounter);
+            ++roundCounter;
     
             if (roundCounter > 5) {
                 gameEnd = true;
-                console.log(determineWinner("Human", "Computer"));
+                let gameWinner = `Game over! ${determineWinner("Human", "Computer")}`;
+                updateDisplay(roundResultElement, gameWinner);
             }
         });
     }
