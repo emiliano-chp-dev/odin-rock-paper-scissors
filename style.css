@@ -1,11 +1,13 @@
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
 /* Reset styles */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Play", sans-serif;
+    font-size: 18px;
 }
 
 /* Style body */
@@ -15,6 +17,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #7f849c;
 }
 
 /* Style display */
@@ -22,12 +25,14 @@ body {
     height: 300px;
     width: 300px;
     margin-bottom: 2em;
-    border: 1px solid black;
-    padding: 1.2em;
+    border-radius: 1em;
+    padding: 1em 2em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
 }
 
 /* Style scoreboard */
@@ -47,6 +52,19 @@ body {
 
 .button_wrapper button {
     width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 1em;
     padding: .5em 1em;
+    background-color: #45475a;
+    box-shadow: 6px 6px 2px 1px rgba(30, 30, 46, .8);
     text-align: center;
+    font-family: 'Play', sans-serif;
+    font-weight: 700;
+    color: #cdd6f4;
+}
+
+.button_wrapper button:active {
+    box-shadow: 2px 2px 1px 1px rgba(30, 30, 46, .8);
+    color: #f9e2af;
 }
