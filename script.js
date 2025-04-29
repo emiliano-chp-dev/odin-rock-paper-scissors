@@ -17,9 +17,9 @@ function getRandomInt (num) {
     return Math.floor(Math.random() * num);
 }
 
-function getHumanChoice() {
-    return prompt("Rock, paper, or scissors?");
-}
+// function getHumanChoice() {
+//     return prompt("Rock, paper, or scissors?");
+// }
 
 function playGame() {
     let humanScore = 0;
@@ -53,11 +53,37 @@ function playGame() {
         return roundResult;
     }
 
-    // let roundCounter = 1;
-    // while (roundCounter <= 5) {
-    //     console.log(playRound(getHumanChoice(), getComputerChoice()));
-    //     ++roundCounter;
-    // }
+    let gameEnd = false;
+    let gameResult = '';
+    let roundCounter = 1;
+
+    function determineWinner(humanScore, computerScore) {
+        if (humanScore === computerScore) return "This game's a draw!";
+        else if (humanScore > computerScore) return "You win!";
+        else return "Computer wins!";
+    }
+    
+    function playOnClick() {
+        const button_wrapper = document.querySelector('.button_wrapper');
+    
+        button_wrapper.addEventListener('click', (event) => {
+            if (gameEnd) return;
+    
+            let target = event.target;
+    
+            if (target.id === '') return;
+    
+            console.log(playRound(target.id, getComputerChoice()));
+            roundCounter++;
+    
+            if (roundCounter > 5) {
+                gameEnd = true;
+                console.log(determineWinner("Human", "Computer"));
+            }
+        });
+    }
+
+    playOnClick();
 }
 
 playGame();
