@@ -53,11 +53,11 @@ function playGame() {
         return roundResult;
     }
 
-    let roundCounter = 1;
-    while (roundCounter <= 5) {
-        console.log(playRound(getHumanChoice(), getComputerChoice()));
-        ++roundCounter;
-    }
+    // let roundCounter = 1;
+    // while (roundCounter <= 5) {
+    //     console.log(playRound(getHumanChoice(), getComputerChoice()));
+    //     ++roundCounter;
+    // }
 }
 
 playGame();
